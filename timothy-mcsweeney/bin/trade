@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative '../lib/trade'
+RATES_PATH = File.expand_path("../../data/RATES.xml", __FILE__)
+TRANS_PATH = File.expand_path("../../data/TRANS.csv", __FILE__)
+p Reducer.new("DM1182", "USD").call
