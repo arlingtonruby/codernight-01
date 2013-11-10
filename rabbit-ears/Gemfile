@@ -1,0 +1,43 @@
+source "https://rubygems.org"
+
+# We're specifically requiring JRuby so we don't get bitten by the bankers rounding bug:
+# http://bugs.ruby-lang.org/issues/3803
+ruby '1.9.3', :engine => 'jruby',  :engine_version => '1.7.6'
+
+# https://github.com/jimweirich/rake
+# Thanks Jim!
+gem 'rake'
+
+# https://github.com/railsware/global
+# and great backstory: http://railsware.com/blog/2013/10/16/rails-configuration-in-the-proper-way
+gem 'global'
+
+# https://github.com/jarmo/require_all
+gem 'require_all'
+
+# https://github.com/jfelchner/ruby-progressbar
+gem 'ruby-progressbar'
+
+# https://github.com/rails/rails/tree/master/activesupport
+# There is a bunch of neat stuff in activesupport usable as application components.
+gem "activesupport"
+gem "tzinfo"
+
+group 'development' do
+  # https://github.com/michaeldv/awesome_print
+  gem "awesome_print"
+end
+
+group 'test' do
+  # https://github.com/seattlerb/minitest
+  gem "minitest"
+  # https://github.com/citrus/minitest_should
+  gem 'minitest_should'
+  # https://github.com/colszowka/simplecov
+  gem 'simplecov', :require => false
+  # https://github.com/TwP/turn
+  gem 'turn'
+end
+
+group 'production' do
+end
