@@ -1,0 +1,18 @@
+require 'pry'
+
+project_dir = File.dirname(__FILE__)
+
+$LOAD_PATH << project_dir # let's see ./test
+$LOAD_PATH << File.join(project_dir, 'lib')
+
+Dir[File.join(project_dir, 'lib', '*.rb')].each { |f| require f }
+
+desc "Run minitest suite"
+task :test do
+  Dir.glob('test/specs/*_spec.rb') { |f| require f }
+end
+
+desc "Open a console with libraries loaded"
+task :console do
+  binding.pry
+end
